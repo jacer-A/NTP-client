@@ -66,7 +66,6 @@ void send_pack(int sock, uint8_t *pack, size_t pack_len) {
 void receive_pack(int sock, uint8_t *pack) {
 
     size_t nreceived = 0;
-
     while (nreceived != 48) {
         int nbytes = 0;
         uint8_t buffer[48];
@@ -77,7 +76,6 @@ void receive_pack(int sock, uint8_t *pack) {
         }
 
         memcpy(pack + nreceived, buffer, nbytes);
-
         nreceived += nbytes;
     }
 }
